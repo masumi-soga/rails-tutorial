@@ -11,3 +11,11 @@ rails5とは違いwebpackerが標準となったためyarnがインストール�
 ※Webpackerとは、 Webpackを使用してRuby on Rails上でJavaScript開発をするために必要な一連のまとまりを、標準で実装することができるgemパッケージ  
 ※Yarnとは、主にJavaScriptで開発されたプログラム部品（モジュール）を管理するためのパッケージ管理システムの一つ。 npmと互換性があり、乗り換えたり併用することができる  
 ↑yarnでwebpackerを管理するためyarnが必要  
+
+# 2021/06/08
+Herokuへテストデプロイを行う→失敗  
+原因  
+herokuで使えるbundlerのversionではなかった。  
+解決策  
+bundlerをバージョンダウンしてgemfile.lockを規定のバージョンで再作成すること  
+参考:https://yumishin.com/heroku-push-error/
