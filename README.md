@@ -19,3 +19,13 @@ herokuで使えるbundlerのversionではなかった。
 解決策  
 bundlerをバージョンダウンしてgemfile.lockを規定のバージョンで再作成すること  
 参考:https://yumishin.com/heroku-push-error/
+
+# 2021/06/09
+UserMVC作成
+rails g scaffoldを使って作成  
+基本的なメソッドや対応したviewが自動で作成される  
+!注目!  
+def set_user  
+ @user = User.find(params[:id])
+end
+↑これをbedore_actionで実行しておくと全ての@userを使用するメソッド内に記述しなくても良い。メンテナンス性・可読性○
