@@ -29,3 +29,6 @@ def set_user
  @user = User.find(params[:id])
 end
 ↑これをbedore_actionで実行しておくと全ての@userを使用するメソッド内に記述しなくても良い。メンテナンス性・可読性○
+
+# 2021/06/11
+SQL文一覧を追加他ページにてまとめる予定
