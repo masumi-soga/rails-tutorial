@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Microposts</h1>
+
+<%# SQLについてメモ %>
+<p>
+  ■SQLコマンド<br>
+  ＊DML(データ操作言語)<br>
+  ・データの検索「SELECT」コマンド<br>
+  SELECT 列名 [表示用列名] FROM テーブル名;--テーブルから列を抜き出す。表示用の列名は省略可能<br>
+  SELECT * FROM テーブル名--テーブルからすべてを選んで表示する<br>
+  ex:SELECT price * 1.08 FROM price_list;<br>
+  ・重複を排除して抜き出す「DISTINCT」コマンド<br>
+  SELECT DISTINCT 列名 FROM テーブル名;<br>
+  ・条件指定して抜き出す「WHERE」コマンド<br>
+  SELECT 列名 FROM テーブル名 WHERE 条件式;<br>
+  頻繁に使う条件指定例<br>
+  列名 IS BETWEEN 値 AND 値 --2つの値の間に含む<br>
+  列名 IS IN (値, 値, ...) --列挙した中のどれかと一致する<br>
+  列名 IS NULL --空欄を選択<br>
+  列名 IS NOT NULL --空欄以外を選択<br>
+  ・ソート「ORDER BY」コマンド<br>
+  ORDER BY 列名 --昇順でソート<br>
+  ORDER BY 列名 DESC --降順でソート<br>
+  ・データの挿入「INSERT」コマンド<br>
+  INSERT INTO テーブル名 VALUES (値, 値, ...); --行をテーブルの一番下に挿入する<br>
+  INSERT INTO テーブル名 (列名, 列名, ...) VALUES (値, 値, ...); --列名を指定して行を挿入<br>
+  ・データの変更「UPDATE」コマンド<br>
+  UPDATE テーブル名 SET 列名 = 値 WHERE 条件式; --条件と一致する列の値を更新する<br>
+  ・データの削除「DELETE」コマンド<br>
+  DELETE FROM テーブル名 WHERE 条件式; --条件と一致する行を削除する<br>
+
+  ＊DDL(データ定義言語)<br>
+  ・テーブルの作成「CREATE」コマンド<br>
+  CREATE TABLE テーブル名 (列名 データ型, ...);<br>
+  ・テーブルの変更「ALTER」<br>
+  ALTER TABLE テーブル名 変更操作;<br>
+  よく使う変更操作<br>
+  ADD (列名 データ型) --列を追加<br>
+MODIFY 列名 データ型 --データ型や制約を変更<br>
+DROP COLUM 列名 --列を削除<br>
+ADD 制約 --制約を追加<br>
+DROP 制約 --制約を削除<br>
+・テーブルの削除「DROP」コマンド<br>
+DROP TABLE テーブル名<br>
+
+＊トランザクション制御文<br>
+・確定「COMMIT」<br>
+COMMIT;<br>
+・取り消し「ROLLBACK」<br>
+ROLLBACK;<br>
+・セーブポイント「SAVEPOINT」<br>
+SAVEPOINT 新規セーブポイント名 --新しいセーブポイントの設定<br>
+ROLLBACK TO セーブポイント名 --指定したセーブポイントまで戻る<br>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @microposts.each do |micropost| %>
+      <tr>
+        <td><%= micropost.content %></td>
+        <td><%= micropost.user_id %></td>
+        <td><%= link_to 'Show', micropost %></td>
+        <td><%= link_to 'Edit', edit_micropost_path(micropost) %></td>
+        <td><%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Micropost', new_micropost_path %>
