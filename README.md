@@ -32,3 +32,8 @@ end
 
 # 2021/06/11
 SQL文一覧を追加他ページにてまとめる予定
+
+# 2021/06/14
+3章静的ページ作成  
+migrate状態をVERSION=Nの状態に戻す  
+rails db:migrate VERSION=0
