@@ -46,3 +46,8 @@ rails db:migrate VERSION=0
 ex:get static_pages_home_url  
 assert_response :success  
 
+# 2021/06/16
+view共通部分のDRYについて
+application.html.erb→<%= yield(:title) %>
+view→<% provide(:title, "Help")%>  
+provideメソッドでyieldに値を渡せる
