@@ -51,3 +51,13 @@ view共通部分のDRYについて
 application.html.erb→<%= yield(:title) %>
 view→<% provide(:title, "Help")%>  
 provideメソッドでyieldに値を渡せる
+
+# 2021/06/19
+railsコンソールをnanoにする  
+nano ~/.irbrc  
+上記ファイルに下記を追加  
+IRB.conf[:PROMPT_MODE] = :SIMPLE  
+IRB.conf[:AUTO_INDENT_MODE] = false  
+
+(0..9).to_a  
+0〜9を配列に変換  
