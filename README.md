@@ -82,3 +82,7 @@ Railsではキーにシンボルを使うのが一般的
 >> user = { :name => "Michael Hartl", :email => "michael@example.com" }
 => {:name=>"Michael Hartl", :email=>"michael@example.com"}
 ```
+下記記法もある
+```
+>> user = { name: "Michael Hartl", email: "michael@example.com" }
+```
