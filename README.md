@@ -69,4 +69,16 @@ result = array.map do |item|
 end
 =>[2, 4, 6]
 ```
-このようにmapは戻り値がmap do endの間の処理をした後が返ってくる
+このようにmapは戻り値がmap do endの間の処理をした後が返ってくる  
+
+hashとシンボル. 
+基本的には配列と変わらないがキーに整数値以外を使うことができる
+```
+>> user = { "first_name" => "Michael", "last_name" => "Hartl" }
+=> {"last_name"=>"Hartl", "first_name"=>"Michael"}
+```
+Railsではキーにシンボルを使うのが一般的
+```
+>> user = { :name => "Michael Hartl", :email => "michael@example.com" }
+=> {:name=>"Michael Hartl", :email=>"michael@example.com"}
+```
