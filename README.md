@@ -87,3 +87,5 @@ Railsではキーにシンボルを使うのが一般的
 >> user = { name: "Michael Hartl", email: "michael@example.com" }
 => {:name=>"Michael Hartl", :email=>"michael@example.com"}
 ```
+classの継承. 
+class Word < String. 
