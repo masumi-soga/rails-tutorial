@@ -89,3 +89,8 @@ Railsではキーにシンボルを使うのが一般的
 ```
 classの継承. 
 class Word < String. 
+
+## デプロイに関して
+このサイトへのアクセスは安全でないと表示される. 
+SSL有効証明書期限超過の可能性あり。下サイト参照. 
+https://note.affi-sapo-sv.com/letsencrypt-uodate.php
